@@ -95,18 +95,18 @@ I don't recommend this approach, but one option is in the controller:
 
 ```ruby
 def create
-    @registration = Registration.new(registration_params)
+  @registration = Registration.new(registration_params)
 
-    if registration_params["terms_of_service"] == "1"
-      @registration.terms_of_service_accepted_at = Time.now
-    end
-
-    if @registration.save
-      redirect_to @registration, notice: 'Registration was successfully created.'
-    else
-      render :new
-    end
+  if registration_params["terms_of_service"] == "1"
+    @registration.terms_of_service_accepted_at = Time.now
   end
+
+  if @registration.save
+    redirect_to @registration, notice: 'Registration was successfully created.'
+  else
+    render :new
+  end
+end
 ```
 
 But ideally we should kept controller simple and with minimal logic.
