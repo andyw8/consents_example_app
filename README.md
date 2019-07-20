@@ -38,7 +38,7 @@ The only addition was validations on the `name` and `email` fields:
 
 ## 01 Implied Consent
 
-The simplest thing we build is an implied consent:
+The simplest thing we can build is an implied consent:
 
 ![](images/01.png)
 
@@ -59,16 +59,14 @@ We'll make use of Rails built-in `acceptance` validator:
 
 [app/models/registration.rb](02_consents_example_app/app/models/registration.rb#L4)
 
-If the user doesn't accept the terms, they can't register:
-
-![](images/02_error.png)
-
 We also need to update the controller to allow this new parameter to be passed to the model:
 
 [app/controllers/registrations_controller.rb](02_consents_example_app/app/controllers/registrations_controller.rb#L72)
 
-Note that we are not persisting the consent to the database.
-Since this consent is mandatory, we can assume that anyone who has registered has accepted the terms.
+If the user doesn't accept the terms, they can't register:
+
+![](images/02_error.png)
+Note that we are not persisting the consent to the database, but since this consent is mandatory, we can assume that anyone who has registered has accepted the terms.
 
 ## 03 Checkbox with boolean DB field
 
