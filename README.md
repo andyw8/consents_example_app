@@ -1,4 +1,4 @@
-# Consents Example App
+# User Consents Examples in Rails
 
 This repo demonstrates some approaches to various aspects of handling user consents in a Rails app.
 
