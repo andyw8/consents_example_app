@@ -46,6 +46,10 @@ We only want this to be shown when the user is registering, so we hide it when e
 
 [app/views/registrations/_form.html.erb](01_consents_example_app/app/views/registrations/_form.html.erb)
 
+The main problem with this approach is that is probably isn't legally valid.
+
+With new legislation such as the GDPR, users must explicitly opt-in by performing an action.
+
 ## 02 Checkbox
 
 ![](images/02.png)
