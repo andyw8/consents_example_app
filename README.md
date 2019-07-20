@@ -59,6 +59,10 @@ We'll make use of Rails built-in `acceptance` validator:
 
 [app/models/registration.rb](02_consents_example_app/app/models/registration.rb#L4)
 
+If the user doesn't accept the terms, they can't register:
+
+![](images/02_error.png)
+
 We also need to update the controller to allow this new parameter to be passed to the model:
 
 [app/controllers/registrations_controller.rb](02_consents_example_app/app/controllers/registrations_controller.rb#L72)
