@@ -62,3 +62,11 @@ We'll make use of Rails built-in `acceptance` validator:
 We also need to update the controller to allow this new parameter to be passed to the model:
 
 [app/controllers/registrations_controller.rb](02_consents_example_app/app/controllers/registrations_controller.rb#L72)
+
+## 03 Checkbox with DB field
+
+We add a migration in for the new field:
+
+[db/migrate/20190717233640_add_terms_of_service_to_registrations.rb](03_consents_example_app/db/migrate/20190717233640_add_terms_of_service_to_registrations.rb)
+
+Perhaps surprisingly, this is the only change we need. The checkbox value is automatically persisted to the database.
