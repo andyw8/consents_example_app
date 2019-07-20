@@ -1,11 +1,11 @@
-# User Consents Examples in Rails
+# User Consent Examples for Rails Apps
 
 This repo demonstrates some approaches to various aspects of handling user consents in a Rails app.
 
 It begins with with some basic cases then move onto more complex situations.
 
 The code for each example is stored in its own directory.
-Each example uses its own database, which matches the directory
+Each example creates a separate database, which matches the directory name.
 
 ## Setup
 
