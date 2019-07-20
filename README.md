@@ -44,7 +44,7 @@ The simplest thing we can build is an implied consent:
 
 We only want this to be shown when the user is registering, so we hide it when editing an existing registration:
 
-[app/views/registrations/_form.html.erb](01_consents_example_app/app/views/registrations/_form.html.erb)
+[app/views/registrations/_form.html.erb](01_consents_example_app/app/views/registrations/_form.html.erb#L24-L28)
 
 The main problem with this approach is that is probably isn't legally valid.
 
