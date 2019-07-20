@@ -52,13 +52,13 @@ We only want this to be shown when the user is registering, so we hide it when e
 
 First we add the checkbox to the form.
 
-[app/views/registrations/_form.html.erb](02_consents_example_app/app/views/registrations/_form.html.erb)
+[app/views/registrations/_form.html.erb](02_consents_example_app/app/views/registrations/_form.html.erb#L25-L28)
 
 Next we need to verify that the user checks the checkbox.
 We'll make use of Rails built-in `acceptance` validator:
 
-[app/models/registration.rb](02_consents_example_app/app/models/registration.rb)
+[app/models/registration.rb](02_consents_example_app/app/models/registration.rb#L4)
 
 We also need to update the controller to allow this new parameter to be passed to the model:
 
-[app/controllers/registrations_controller.rb](02_consents_example_app/app/controllers/registrations_controller.rb)
+[app/controllers/registrations_controller.rb](02_consents_example_app/app/controllers/registrations_controller.rb#L72)
