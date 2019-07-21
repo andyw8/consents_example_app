@@ -140,7 +140,7 @@ able to later opt-in or opt-out of the newsletter.
 First we need a migration to add the new field.
 Unlike the Terms of Service checkbox, this will an optional consent, so we will allow `null` values.
 
-[db/migrate/20190718004138_add_terms_of_service_accepted_at_to_registrations.rb](05_consents_example_app/db/migrate/20190718004138_add_terms_of_service_accepted_at_to_registrations.rb)
+[db/migrate/20190718010749_add_subscribe_to_newsletter_to_registrations.rb](05_consents_example_app/db/migrate/20190718010749_add_subscribe_to_newsletter_to_registrations.rb)
 
 We'll also update the controller to allow the new checkbox value to be passed to the model.
 
