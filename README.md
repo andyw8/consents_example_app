@@ -7,6 +7,12 @@ It begins with with some basic cases then move onto more complex situations.
 The code for each example is stored in its own directory.
 Each example creates a separate database, which matches the directory name.
 
+If you want to compare different examples, you can use `diff`, e.g.:
+
+```
+diff --recursive --exclude=tmp --exclude=log --exclude=config 00_consents_example_app 01_consents_example_app
+```
+
 ## Setup
 
 For each example, `cd` into its directory then run:
