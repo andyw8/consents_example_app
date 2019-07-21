@@ -3,10 +3,9 @@ class Registration < ApplicationRecord
   validates :email, presence: true
   validates :terms_of_service, acceptance: true
 
-  has_many :consents
+  has_many :consents, dependent: :destroy
   has_many :consent_changes, through: :consents
 
-  # TODO: dependent settings
   has_one :subscribe_to_newsletter_consent, class_name: "Consents::SubscribeToNewsletter", autosave: true
   has_one :terms_of_service_consent, class_name: "Consents::TermsOfService", autosave: true
 
@@ -14,10 +13,10 @@ class Registration < ApplicationRecord
   delegate :terms_of_service, :terms_of_service=, to: :terms_of_service_consent
 
   def subscribe_to_newsletter_consent
-    super || build_subscribe_to_newsletter_consent(registration: self)
+    super || build_subscribe_to_newsletter_consent
   end
 
   def terms_of_service_consent
-    super || build_terms_of_service_consent(registration: self)
+    super || build_terms_of_service_consent
   end
 end

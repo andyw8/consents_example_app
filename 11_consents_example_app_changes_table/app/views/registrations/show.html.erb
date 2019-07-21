@@ -10,6 +10,16 @@
   <%= @registration.email %>
 </p>
 
+<p>
+  <strong>Terms of Service Accepted:</strong>
+  <%= @registration.terms_of_service %>
+</p>
+
+<p>
+  <strong>Subscribe To Newsletter Accepted:</strong>
+  <%= @registration.subscribe_to_newsletter %>
+</p>
+
 <table>
   <tr>
     <th>Name</th>
@@ -25,15 +35,6 @@
   <% end %>
 </table>
 
-<p>
-  <strong>Terms of Service Accepted At:</strong>
-  <%= @registration.terms_of_service_consent&.accepted_at %>
-</p>
-
-<p>
-  <strong>Terms of Service Withdrawn At:</strong>
-  <%= @registration.terms_of_service_consent&.withdrawn_at %>
-</p>
 
 <%= link_to 'Edit', edit_registration_path(@registration) %> |
 <%= link_to 'Back', registrations_path %>
