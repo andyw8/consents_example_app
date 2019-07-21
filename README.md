@@ -155,3 +155,49 @@ We could do this by simply adding an else branch, but I prefer to make it
 explicitly check for the value of `"0"` to ensure the checkbox value is actually
 being passed to the model. If the value is neither `"0"` or `"1"` then
 we raise an error.
+
+# 06 Storing Consents in a separate table
+
+In a large app with many kinds of complexities, it may be helpful to store the
+consents in a different table.
+
+We'll introduce a new model named `Consent`.
+
+Whenever a new registration is created, a corresponding `Consent` record should
+be created.
+
+I've chosen add a `registration` association  the `Consent` model. Another
+approach could have been to add a `consent` association the `Registration`
+model.
+
+Let's start with the migration:
+
+[db/migrate/20190718021535_create_consents.rb](06_consents_example_app/db/migrate/20190718021535_create_consents.rb)
+
+And next, the Consent model:
+
+[app/models/consent.rb](06_consents_example_app/app/models/consent.rb)
+
+To keep things simple for this example, we'll use the same consent record to store both consents.
+
+The getters and setters that were in `Registration` in the previous example are
+now in the `Consent` model.
+
+In the `Registration` model, we declare a `has_one` relationship. We also enable
+`autosave` so that we don't have to save changes to the consent separately.
+
+Let's now consider the controller. It shouldn't need to know we have have
+separate models for `Registration` and `Consent`. We can transparently
+delegate the appropriate methods to the `Consent` instance.
+
+[app/models/registration.rb](06_consents_example_app/app/models/registration.rb#L8-L12)
+
+This is sufficient for editing an existing registration. But for creating a new
+registration, we need one more step. We need to build a new consent when one
+doesn't already exist. The code for this may look a little strange:
+
+[app/models/consent.rb](06_consents_example_app/app/models/consent.rb#L14-L16)
+
+When we call `super`, we're calling the `consent` defined in the `has_one`
+association. If no record exists, it returns `nil`, so we then call
+`build_consent`.
