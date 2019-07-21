@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @registration.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @registration.email %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Kind</th>
+    <th>When</th>
+  </tr>
+  <% @registration.consent_changes.each do |cc| %>
+  <tr>
+    <th><%= cc.consent.type %></th>
+    <th><%= cc.kind %></th>
+    <th><%= cc.created_at %></th>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <strong>Terms of Service Accepted At:</strong>
+  <%= @registration.terms_of_service_consent&.accepted_at %>
+</p>
+
+<p>
+  <strong>Terms of Service Withdrawn At:</strong>
+  <%= @registration.terms_of_service_consent&.withdrawn_at %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>
